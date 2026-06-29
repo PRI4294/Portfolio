@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Base
+   ───────────────────────────────────────────────────────────── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #06080f;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.45);
+  color: #ffffff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #06080f; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #22d3ee);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #9d5bfa, #67e8f9); }
+
+/* ─────────────────────────────────────────────────────────────
+   Reusable utilities
+   ───────────────────────────────────────────────────────────── */
+
+/* Animated brand gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #a78bfa 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-x 6s ease infinite;
+}
+
+/* Aurora hero background (deep glow blobs) */
+.hero-aurora {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 25%, rgba(124, 58, 237, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 15%, rgba(34, 211, 238, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 90%, rgba(168, 85, 247, 0.14) 0%, transparent 65%),
+    #06080f;
+}
+
+/* Subtle dotted grid (used behind non-hero sections) */
+.bg-dot-grid {
+  background-image: radial-gradient(circle at center, rgba(124,58,237,0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(16, 22, 48, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease;
+}
+.glass-card:hover {
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 12px 40px -10px rgba(124, 58, 237, 0.35);
+  transform: translateY(-3px);
+}
+
+/* Glow CTA — shimmer sweep on hover */
+.glow-btn {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .3s ease, transform .2s ease;
+}
+.glow-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transition: left .55s ease;
+}
+.glow-btn:hover::before { left: 100%; }
+.glow-btn:hover { box-shadow: 0 0 36px rgba(124, 58, 237, 0.55); }
+
+/* Section heading underline */
+.section-title { position: relative; display: inline-block; }
+.section-title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, #7c3aed, #22d3ee);
+  border-radius: 2px;
+}
+
+/* Animated nav-link underline */
+.nav-link { position: relative; transition: color .3s ease; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, #7c3aed, #22d3ee);
+  border-radius: 1px;
+  transition: width .3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* Tech pill */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.625rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  color: #cbd5e1;
+  background: rgba(16, 22, 48, 0.65);
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  transition: all .25s ease;
+  white-space: nowrap;
+}
+.tech-pill:hover {
+  color: #ffffff;
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Magnetic button reset */
+[data-magnetic] { will-change: transform; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Hide Botpress's native launcher — we use a custom one */
+#bp-widget-container .bpFab,
+.bpw-floating-button,
+#bp-web-widget .bp-widget-web__icon-container,
+#bp-web-widget-container > .bpFab {
+  display: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Keyframes mirrored for non-Tailwind use
+   ───────────────────────────────────────────────────────────── */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Loader bar (legacy class — kept in case anything references it) */
+.loader-bar { animation: loader-fill 1.8s ease-in-out forwards; }
+@keyframes loader-fill { from { width: 0%; } to { width: 100%; } }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
