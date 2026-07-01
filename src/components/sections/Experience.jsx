@@ -25,8 +25,8 @@ function TimelineEntry({ exp, index, isLast }) {
   return (
     <motion.div
       className="relative grid grid-cols-[auto,1fr] gap-5 pb-10"
-      initial={{ opacity: 0, x: 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
@@ -46,9 +46,14 @@ function TimelineEntry({ exp, index, isLast }) {
         <div className="flex items-start gap-4 mb-3">
           <CompanyMark company={exp.company} accent={exp.accent} />
           <div className="flex-1 min-w-0">
-            <h3 className="font-display text-lg text-white font-semibold leading-tight">
-              {exp.role}
-            </h3>
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <h3 className="font-display text-lg text-white font-semibold leading-tight">
+                {exp.role}
+              </h3>
+              <span className="text-[0.7rem] font-mono px-2.5 py-1 rounded-full bg-bg-surface border border-border-subtle text-slate-400 whitespace-nowrap flex-shrink-0">
+                {exp.period}
+              </span>
+            </div>
             <p
               className="font-mono text-xs mt-1"
               style={{ color: exp.accent }}
@@ -56,9 +61,6 @@ function TimelineEntry({ exp, index, isLast }) {
               {exp.company} · {exp.type}
             </p>
           </div>
-          <span className="text-[0.7rem] font-mono px-2.5 py-1 rounded-full bg-bg-surface border border-border-subtle text-slate-400 whitespace-nowrap">
-            {exp.period}
-          </span>
         </div>
 
         <p className="text-slate-400 text-sm leading-relaxed mb-4">{exp.description}</p>

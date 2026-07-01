@@ -109,8 +109,8 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* ── Left — contact tiles ── */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             className="space-y-4"
@@ -146,8 +146,8 @@ export default function Contact() {
           {/* ── Right — form ── */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="glass-card rounded-3xl p-7 space-y-5"
