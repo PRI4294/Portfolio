@@ -106,18 +106,18 @@ export default function Contact() {
           intro={profile.availability}
         />
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:items-stretch">
           {/* ── Left — contact tiles ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="flex flex-col gap-4"
           >
-            <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
-              <MapPin size={14} className="text-cyan" />
-              {profile.location.city} · {profile.location.timezone} · Open to remote
+            <div className="flex items-center gap-2 text-slate-400 text-sm">
+              <MapPin size={14} className="text-cyan flex-shrink-0" />
+              <span>{profile.location.city} · {profile.location.timezone} · Open to remote</span>
             </div>
 
             {contactCards.map((c) => (
@@ -136,7 +136,7 @@ export default function Contact() {
             <a
               href={profile.resume}
               download
-              className="w-full mt-2 relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-[0.82rem] tracking-tight text-white bg-gradient-to-r from-violet via-violet to-cyan border border-white/10 shadow-[0_8px_30px_-8px_rgba(124,58,237,0.5)] hover:shadow-[0_10px_40px_-6px_rgba(34,211,238,0.55)] transition-[box-shadow] duration-300 select-none"
+              className="mt-auto w-full relative inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[0.82rem] tracking-tight text-white bg-gradient-to-r from-violet via-violet to-cyan border border-white/10 shadow-[0_8px_30px_-8px_rgba(124,58,237,0.5)] hover:shadow-[0_10px_40px_-6px_rgba(34,211,238,0.55)] transition-[box-shadow] duration-300 select-none"
             >
               <Download size={15} className="opacity-90" />
               Download Resume
@@ -150,9 +150,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass-card rounded-3xl p-7 space-y-5"
+            className="glass-card rounded-3xl p-6 sm:p-7 flex flex-col gap-5"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="font-display text-lg text-white font-semibold">Send a message</h3>
               <span className="text-[0.7rem] font-mono uppercase tracking-widest text-slate-500">
                 opens your mail client
@@ -164,7 +164,7 @@ export default function Contact() {
               <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="jane@company.com" />
             </div>
 
-            <div>
+            <div className="flex flex-col flex-1">
               <label className="text-slate-400 text-xs mb-1.5 block font-mono uppercase tracking-widest">
                 Message
               </label>
@@ -175,13 +175,13 @@ export default function Contact() {
                 placeholder="Tell me about your project or opportunity…"
                 required
                 rows={5}
-                className="w-full bg-bg-base/60 border border-border-subtle focus:border-cyan/70 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors resize-none placeholder:text-slate-600"
+                className="flex-1 w-full bg-bg-base/60 border border-border-subtle focus:border-cyan/70 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors resize-none placeholder:text-slate-600"
               />
             </div>
 
             <button
               type="submit"
-              className="glow-btn w-full py-3.5 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 bg-gradient-to-r from-violet to-cyan"
+              className="glow-btn mt-auto w-full py-3.5 rounded-xl font-semibold text-white text-sm flex items-center justify-center gap-2 bg-gradient-to-r from-violet to-cyan"
             >
               {sent ? (
                 <>

@@ -122,12 +122,13 @@ export default function Navbar({ onOpenPalette }) {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="md:hidden bg-bg-surface/95 backdrop-blur-xl border-t border-border-subtle px-6 py-5 flex flex-col gap-4"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
+            className="md:hidden overflow-hidden bg-bg-surface/95 backdrop-blur-xl border-t border-border-subtle"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
+            <div className="px-6 py-5 flex flex-col gap-4">
             {navLinks.map(link => (
               <a
                 key={link.label}
@@ -145,6 +146,7 @@ export default function Navbar({ onOpenPalette }) {
             >
               Hire Me
             </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
