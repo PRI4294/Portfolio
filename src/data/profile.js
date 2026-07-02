@@ -40,7 +40,7 @@ export const profile = {
 
   // Drop /public/resume.pdf and /public/profile.jpg into the project root
   resume: '/resume.pdf',
-  photo: '/profile.jpg',     // falls back to gradient initial if missing
+  photo: '/Profile.png',
 
   availability: 'Open to full-time AI/ML roles, internships, and research collaborations.',
   availabilityShort: 'Available for AI/ML roles',

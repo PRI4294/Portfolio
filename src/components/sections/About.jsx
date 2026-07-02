@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 import { MapPin, Sparkles, PenTool, Github, Linkedin, Mail, ArrowUpRight, Rocket } from 'lucide-react'
 
 import { profile } from '../../data/profile.js'
@@ -17,23 +16,20 @@ const focusStack = [
   { name: 'FAISS',       icon: 'FAISS',        accent: '#f97316' },
 ]
 
-function Avatar() {
-  const [errored, setErrored] = useState(false)
-
-  if (!errored && profile.photo) {
+function Avatar({ size }) {
+  if (profile.photo) {
     return (
       <img
         src={profile.photo}
         alt={profile.name}
-        onError={() => setErrored(true)}
-        className="w-full h-full object-cover"
-        loading="lazy"
+        className={`${size} object-cover object-center rounded-2xl border border-violet/30 flex-shrink-0`}
+        loading="eager"
       />
     )
   }
   return (
     <div
-      className="w-full h-full flex items-center justify-center font-display text-6xl font-bold text-white"
+      className={`${size} flex-shrink-0 flex items-center justify-center font-display text-6xl font-bold text-white rounded-2xl`}
       style={{ background: 'linear-gradient(135deg, #7c3aed, #22d3ee)' }}
     >
       {profile.shortName[0]}
@@ -58,9 +54,7 @@ export default function About() {
           {/* Tile A — hero (spans 2x2) */}
           <GlassCard className="md:col-span-2 md:row-span-2 p-7 flex flex-col">
             <div className="flex items-start gap-5 mb-5">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border border-violet/30 shadow-glow-violet">
-                <Avatar />
-              </div>
+              <Avatar size="w-36 h-36 flex-shrink-0" />
               <div>
                 <h3 className="font-display text-2xl font-bold text-white">{profile.name}</h3>
                 <p className="text-cyan text-sm font-mono mt-1">{profile.title}</p>
