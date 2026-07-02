@@ -53,7 +53,9 @@ export default function Certifications() {
                 >
                   {c.issuer}
                 </p>
-                <p className="text-slate-400 text-sm leading-relaxed mt-auto">{c.description}</p>
+                <p className="text-slate-400 text-sm leading-relaxed">{c.description}</p>
+
+                <div className="flex-1" />
 
                 {c.credentialFile && (
                   <a

@@ -25,7 +25,7 @@ export const certifications = [
     title: 'B.Tech in Information Technology',
     issuer: 'JECRC Foundation, Jaipur, Rajasthan',
     year: '2022 — 2026',
-    description: 'CGPA: 8.84 / 10. Specialised in AI, ML, data structures, software engineering, and computer networks.',
+    description: 'CGPA: 8.87 / 10. Specialised in AI, ML, data structures, software engineering, and computer networks.',
     icon: 'graduation',
     accent: '#7c3aed',
   },

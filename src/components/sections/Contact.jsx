@@ -96,7 +96,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-28 px-6 overflow-hidden">
+    <section id="contact" className="relative py-28 px-4 sm:px-6 overflow-hidden">
       <GridBackground />
 
       <div className="relative max-w-6xl mx-auto">
@@ -106,14 +106,14 @@ export default function Contact() {
           intro={profile.availability}
         />
 
-        <div className="grid md:grid-cols-2 gap-8 md:items-stretch">
+        <div className="grid md:grid-cols-2 gap-8 md:items-stretch w-full min-w-0">
           {/* ── Left — contact tiles ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 min-w-0 w-full pb-6 sm:pb-7"
           >
             <div className="flex items-start gap-2 text-slate-400 text-sm">
               <MapPin size={14} className="text-cyan flex-shrink-0 mt-0.5" />
@@ -150,7 +150,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass-card rounded-3xl p-6 sm:p-7 flex flex-col gap-5"
+            className="glass-card rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-w-0 w-full"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="font-display text-lg text-white font-semibold">Send a message</h3>
@@ -164,7 +164,7 @@ export default function Contact() {
               <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="jane@company.com" />
             </div>
 
-            <div className="flex flex-col flex-1">
+            <div>
               <label className="text-slate-400 text-xs mb-1.5 block font-mono uppercase tracking-widest">
                 Message
               </label>
@@ -175,7 +175,7 @@ export default function Contact() {
                 placeholder="Tell me about your project or opportunity…"
                 required
                 rows={5}
-                className="flex-1 w-full bg-bg-base/60 border border-border-subtle focus:border-cyan/70 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors resize-none placeholder:text-slate-600"
+                className="w-full bg-bg-base/60 border border-border-subtle focus:border-cyan/70 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors resize-none placeholder:text-slate-600"
               />
             </div>
 
