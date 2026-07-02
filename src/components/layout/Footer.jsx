@@ -63,12 +63,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto pt-6 border-t border-border-subtle/40 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-slate-600 text-xs flex items-center gap-1.5">
-          © {new Date().getFullYear()} {profile.name} · Built with
-          <Heart size={11} className="text-pink-500 fill-pink-500" />
-          using React, Tailwind & Framer Motion
-        </p>
+      <div className="max-w-6xl mx-auto pt-6 border-t border-border-subtle/40 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-1.5 text-slate-600 text-xs">
+          <span>© {new Date().getFullYear()} {profile.name}</span>
+          <span className="hidden sm:inline text-slate-700">·</span>
+          <span className="inline-flex items-center justify-center gap-1.5">
+            Built with <Heart size={11} className="text-pink-500 fill-pink-500" /> React, Tailwind & Framer Motion
+          </span>
+        </div>
         <p className="text-slate-700 text-[0.65rem] font-mono uppercase tracking-widest">
           Press ⌘K to navigate
         </p>
