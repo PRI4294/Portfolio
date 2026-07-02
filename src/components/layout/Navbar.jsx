@@ -134,14 +134,27 @@ export default function Navbar({ onOpenPalette }) {
                 key={link.label}
                 href={link.href}
                 className="text-slate-300 hover:text-cyan font-medium text-sm transition-colors"
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setMenuOpen(false)
+                  const id = link.href.slice(1)
+                  setTimeout(() => {
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+                  }, 50)
+                }}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault()
+                setMenuOpen(false)
+                setTimeout(() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }, 50)
+              }}
               className="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-violet to-cyan"
             >
               Hire Me

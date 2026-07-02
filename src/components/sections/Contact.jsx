@@ -41,7 +41,7 @@ function ContactCard({ icon: Icon, label, value, href, accent, external = false,
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       whileHover={{ y: -3 }}
-      className="glass-card group flex items-center gap-4 p-4 rounded-2xl relative overflow-hidden"
+      className="glass-card group w-full flex items-center gap-3 p-4 rounded-2xl relative overflow-hidden min-w-0"
     >
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -115,9 +115,9 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-4"
           >
-            <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <MapPin size={14} className="text-cyan flex-shrink-0" />
-              <span>{profile.location.city} · {profile.location.timezone} · Open to remote</span>
+            <div className="flex items-start gap-2 text-slate-400 text-sm">
+              <MapPin size={14} className="text-cyan flex-shrink-0 mt-0.5" />
+              <span className="leading-snug">{profile.location.city} · {profile.location.timezone} · Open to remote</span>
             </div>
 
             {contactCards.map((c) => (

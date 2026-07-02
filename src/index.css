@@ -17,7 +17,7 @@ body {
   color: #e2e8f0;
   font-family: 'Inter', sans-serif;
   font-feature-settings: 'cv11', 'ss01';
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
